@@ -1,21 +1,30 @@
-import React from 'react'
+import React from 'react';
 
 // Zadání 1: Dopiš komponentu `NakupniPolozka`, aby v divu byl vypsaný název položky a tlačítko s textem „koupit“.
 // Zadání 2: Po kliknutí na tlačítko vypiš do konzole „Uživatel chce koupit DOPLŇ_NÁZEV_POLOŽKY“.
 
 export const NakupniPolozka = ({ nazev }) => {
-	return <div>@TODO</div>
-}
+  const handleClick = () => {
+    console.log(`Uživatel chce koupit ${nazev}`);
+  };
+  return (
+    <div>
+      {nazev}
+      <button onClick={handleClick}>Koupit</button>
+    </div>
+  );
+};
 
 // Zadání 3: Pomocí `polozky.map` vypiš všechny názvy jako nákupní položky.
 
 export const Uloha5 = () => {
-	const polozky = ['hrušky', 'jablka', 'třešně', 'jahody']
+  const polozky = ['hrušky', 'jablka', 'třešně', 'jahody'];
 
-	return (
-		<>
-			<NakupniPolozka nazev="hrušky" />
-			<NakupniPolozka nazev="jablka" />
-		</>
-	)
-}
+  return (
+    <>
+      {polozky.map((m) => (
+        <NakupniPolozka nazev={m} />
+      ))}
+    </>
+  );
+};
